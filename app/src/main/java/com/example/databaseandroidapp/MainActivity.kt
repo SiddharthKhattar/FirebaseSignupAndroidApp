@@ -40,6 +40,10 @@ class MainActivity : AppCompatActivity() {
             database = FirebaseDatabase.getInstance().getReference("Users")
 
             database.child(uniqueId).setValue(user).addOnSuccessListener {
+                etName.text?.clear()
+                etMail.text?.clear()
+                etPassword.text?.clear()
+                etUserName.text?.clear()
                 Toast.makeText(this,"User Registered", Toast.LENGTH_SHORT).show()
             }.addOnSuccessListener {
                 Toast.makeText(this,"Failed", Toast.LENGTH_SHORT).show()
